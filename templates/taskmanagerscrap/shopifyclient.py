@@ -1,10 +1,13 @@
+import os
 from requests_html import HTMLSession
 from templates.lib.data import Item
+from dotenv import load_dotenv
 
 
 class Client():
     def __init__(self):
-        self.base_url = f'https://www.fxpedalplanet.co.uk/product/tonetuga-fx-songbird-spectrum-overdrive-effects-pedal'
+        load_dotenv()
+        self.base_url = f'{os.getenv("LINK")}'
         self.session = HTMLSession()
         
     def get_data(self):
